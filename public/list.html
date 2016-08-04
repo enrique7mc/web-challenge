@@ -11,9 +11,12 @@
         <tr ng-repeat="todo in todos" style="cursor:pointer">
             <td>
                 <input type="checkbox" ng-model="todo.completed"/>
-                <p>{{ todo.description }}</p>
+                <span>{{ todo.description }}</span>
             </td>
         </tr>
         </tbody>
     </table>
+    <input class="add-todo" placeholder="New task" type="text" ng-model="todoDescription" />
+    <button class="add-button" ng-click="addTodo(todo)">Add</button>
+    <button class="clear-button" ng-click="clearCompleted()">Clear Completed</button>
 </div>

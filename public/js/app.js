@@ -24,9 +24,29 @@ angular.module("todoApp", ['ngRoute'])
             // });
             return mockTodos;
         };
+        this.createTodo = function () {
+
+        }
     })
     .controller('ListController', function (todos, $scope) {
         $scope.todos = todos.data;
+
+        $scope.addTodo = function (todo) {
+            // call API post
+            mockTodos.data.push({
+                id: mockTodos.data.length + 1,
+                description: $scope.todoDescription,
+                completed: false
+            });
+        };
+
+        $scope.clearCompleted = function () {
+            // call api delete
+            mockTodos.data = mockTodos.data.filter(function (todo) {
+                return !todo.completed;
+            });
+            console.log(mockTodos.data);
+        };
     });
 
 var mockTodos = {
